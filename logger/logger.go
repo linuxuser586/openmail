@@ -1,8 +1,34 @@
-// Copyright 2024 The OpenMail Authors
+// Copyright The OpenMail Authors
 // SPDX-License-Identifier: Apache-2.0
 
-// Package logger provides API for logging.
+// Package logger provides the logger API.
 package logger
+
+// Environment is used to provide reasonable configuration defaults
+type Environment int
+
+const (
+	Development Environment = iota
+	Production
+)
+
+// Level is the verbosity for logging
+type Level int
+
+const (
+	Debug Level = iota
+	Info
+	Warn
+	Error
+	Panic
+	Fatal
+)
+
+// Config provides options for creating a new Logger instance
+type Config interface {
+	GetEnvironment() Environment
+	GetLevel() Level
+}
 
 // Logger is the API for logging
 type Logger interface {
@@ -35,4 +61,6 @@ type Logger interface {
 	WithField(key string, val any) Logger
 	// Sync flushes the buffer
 	Sync()
+	// GetLevel gets the current [Level]
+	GetLevel() Level
 }
