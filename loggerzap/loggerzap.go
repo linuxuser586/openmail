@@ -1,4 +1,4 @@
-// Copyright The OpenMail Authors
+// Copyright 2024 The OpenMail Authors
 // SPDX-License-Identifier: Apache-2.0
 
 // Package loggerzap is a thin wrapper around [go.uber.org/zap] that implements [logger.Logger].
