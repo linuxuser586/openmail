@@ -45,7 +45,7 @@ func (c Config) GetLevel() logger.Level {
 func NewDevConfig() Config {
 	return Config{
 		Env:        logger.Development,
-		Level:      logger.Info,
+		Level:      logger.Debug,
 		Encoding:   Console,
 		MessageKey: "msg",
 	}
